@@ -449,6 +449,126 @@ footer{padding:2rem 4rem;border-top:1px solid var(--border);display:flex;justify
 .reveal-cascade:nth-child(3){transition-delay:.24s;}
 .reveal-cascade:nth-child(4){transition-delay:.36s;}
 
+/* ── FEATURED SECTION ENTRANCE ── */
+.section-title{
+  opacity:0;transform:translateX(-40px);
+  transition:opacity .75s cubic-bezier(.22,1,.36,1),transform .75s cubic-bezier(.22,1,.36,1);
+}
+.section-title.in-view{opacity:1;transform:translateX(0);}
+.section-label{
+  opacity:0;transform:translateX(-20px);
+  transition:opacity .55s ease .1s,transform .55s ease .1s;
+}
+.section-label.in-view{opacity:1;transform:translateX(0);}
+
+/* ── PROJECT CARD SCROLL ANIMATION ── */
+.project-card{
+  opacity:0;
+  transform:translateY(60px) scale(.96);
+  transition:
+    opacity .7s cubic-bezier(.22,1,.36,1),
+    transform .7s cubic-bezier(.22,1,.36,1),
+    border-color .4s,
+    box-shadow .4s;
+}
+.project-card.card-visible{
+  opacity:1;
+  transform:translateY(0) scale(1);
+}
+.project-card.card-visible:nth-child(1){transition-delay:0s;}
+.project-card.card-visible:nth-child(2){transition-delay:.15s;}
+.project-card.card-visible:nth-child(3){transition-delay:.3s;}
+
+/* ── CERT CARD SCROLL ANIMATION ── */
+.cert-card{
+  opacity:0;
+  transform:translateY(40px) scale(.95);
+  transition:
+    opacity .6s cubic-bezier(.22,1,.36,1),
+    transform .6s cubic-bezier(.22,1,.36,1),
+    border-color .4s,box-shadow .4s;
+}
+.cert-card.card-visible{opacity:1;transform:translateY(0) scale(1);}
+.cert-card.card-visible:nth-child(1){transition-delay:0s;}
+.cert-card.card-visible:nth-child(2){transition-delay:.1s;}
+.cert-card.card-visible:nth-child(3){transition-delay:.2s;}
+.cert-card.card-visible:nth-child(4){transition-delay:.3s;}
+
+/* ── EDU CARD SCROLL ANIMATION ── */
+.edu-card{
+  opacity:0;
+  transform:translateX(-50px);
+  transition:
+    opacity .65s cubic-bezier(.22,1,.36,1),
+    transform .65s cubic-bezier(.22,1,.36,1),
+    border-color .4s,box-shadow .4s;
+}
+.edu-card.card-visible{opacity:1;transform:translateX(0);}
+.edu-card.card-visible:nth-child(1){transition-delay:0s;}
+.edu-card.card-visible:nth-child(2){transition-delay:.12s;}
+.edu-card.card-visible:nth-child(3){transition-delay:.24s;}
+
+/* ── TIMELINE ITEM ANIMATION (enhanced) ── */
+.timeline-item{
+  opacity:0;
+  transform:translateX(-50px);
+  transition:opacity .7s ease,transform .7s ease;
+}
+.timeline-item.visible{opacity:1;transform:translateX(0);}
+.timeline-item:nth-child(1){transition-delay:0s;}
+.timeline-item:nth-child(2){transition-delay:.15s;}
+.timeline-item:nth-child(3){transition-delay:.3s;}
+
+/* ── PROJECT NUMBER COUNTER ANIMATION ── */
+.project-number{
+  opacity:0;transform:translateY(-10px);
+  transition:opacity .5s ease .3s,transform .5s ease .3s;
+}
+.project-card.card-visible .project-number{opacity:1;transform:translateY(0);}
+
+/* ── PROJECT TAG STAGGER ── */
+.project-tag{
+  opacity:0;transform:translateY(8px) scale(.9);
+  transition:opacity .4s ease,transform .4s ease;
+}
+.project-card.card-visible .project-tag{opacity:1;transform:translateY(0) scale(1);}
+.project-card.card-visible .project-tag:nth-child(1){transition-delay:.35s;}
+.project-card.card-visible .project-tag:nth-child(2){transition-delay:.42s;}
+.project-card.card-visible .project-tag:nth-child(3){transition-delay:.49s;}
+.project-card.card-visible .project-tag:nth-child(4){transition-delay:.56s;}
+.project-card.card-visible .project-tag:nth-child(5){transition-delay:.63s;}
+.project-card.card-visible .project-tag:nth-child(6){transition-delay:.7s;}
+.project-card.card-visible .project-tag:nth-child(7){transition-delay:.77s;}
+
+/* ── ABOUT BIO & SKILLS SLIDE IN ── */
+.about-bio,.about-skills{
+  opacity:0;transform:translateY(40px);
+  transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1);
+}
+.about-bio.visible,.about-skills.visible{opacity:1;transform:translateY(0);}
+
+/* ── CONTACT LINKS POP IN ── */
+.contact-link{
+  opacity:0;transform:translateY(20px);
+  transition:opacity .5s ease,transform .5s ease,
+    border-color .3s,color .3s,background .3s,box-shadow .3s;
+}
+.contact-link.cl-visible{opacity:1;transform:translateY(0);}
+.contact-link.cl-visible:nth-child(1){transition-delay:0s;}
+.contact-link.cl-visible:nth-child(2){transition-delay:.1s;}
+.contact-link.cl-visible:nth-child(3){transition-delay:.2s;}
+.contact-link.cl-visible:nth-child(4){transition-delay:.3s;}
+
+/* ── SECTION TITLE ACCENT UNDERLINE ── */
+.section-title{position:relative;display:inline-block;}
+.section-title::after{
+  content:'';position:absolute;left:0;bottom:-6px;height:3px;width:0;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  border-radius:2px;
+  transition:width .8s cubic-bezier(.22,1,.36,1) .4s;
+}
+.section-title.in-view::after{width:60%;}
+
 /* floating back-to-top */
 .floating-badge{position:fixed;bottom:2rem;right:2rem;z-index:90;width:56px;height:56px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;font-size:1.3rem;cursor:none;transition:all .3s;box-shadow:0 8px 30px rgba(0,245,212,.4);text-decoration:none;color:#050810;font-weight:700;}
 .floating-badge:hover{transform:scale(1.1);box-shadow:0 12px 40px rgba(0,245,212,.6);}
@@ -631,7 +751,7 @@ footer{padding:2rem 4rem;border-top:1px solid var(--border);display:flex;justify
   <h2 class="section-title">Featured Projects</h2>
   <div class="projects-grid">
 
-    <div class="project-card reveal reveal-cascade">
+    <div class="project-card">
       <canvas class="project-card-canvas" id="pCard1"></canvas>
       <div class="project-number">01 / 2026</div>
       <h3 class="project-title">Banking Management System</h3>
@@ -645,7 +765,7 @@ footer{padding:2rem 4rem;border-top:1px solid var(--border);display:flex;justify
       </div>
     </div>
 
-    <div class="project-card reveal reveal-cascade">
+    <div class="project-card">
       <canvas class="project-card-canvas" id="pCard2"></canvas>
       <div class="project-number">02 / 2026</div>
       <h3 class="project-title">Kanban Task Manager</h3>
@@ -659,7 +779,7 @@ footer{padding:2rem 4rem;border-top:1px solid var(--border);display:flex;justify
       </div>
     </div>
 
-    <div class="project-card reveal reveal-cascade">
+    <div class="project-card">
       <canvas class="project-card-canvas" id="pCard3"></canvas>
       <div class="project-number">03 / 2025</div>
       <h3 class="project-title">Real-Time Web Traffic Visualizer</h3>
@@ -717,19 +837,19 @@ footer{padding:2rem 4rem;border-top:1px solid var(--border);display:flex;justify
   <div class="section-label">Credentials</div>
   <h2 class="section-title">Certifications</h2>
   <div class="cert-grid">
-    <div class="cert-card reveal reveal-cascade">
+    <div class="cert-card">
       <div class="cert-icon" style="background:rgba(255,102,0,.18)">🤖</div>
       <div><div class="cert-name">Certified Automation Developer Associate</div><div class="cert-issuer">UiPath · 2025</div></div>
     </div>
-    <div class="cert-card reveal reveal-cascade">
+    <div class="cert-card">
       <div class="cert-icon" style="background:rgba(0,112,209,.18)">⚛️</div>
       <div><div class="cert-name">Developing Front-End Apps with React</div><div class="cert-issuer">IBM · 2025</div></div>
     </div>
-    <div class="cert-card reveal reveal-cascade">
+    <div class="cert-card">
       <div class="cert-icon" style="background:rgba(66,133,244,.18)">☁️</div>
       <div><div class="cert-name">IT Support Professional Certificate</div><div class="cert-issuer">Google · 2025</div></div>
     </div>
-    <div class="cert-card reveal reveal-cascade">
+    <div class="cert-card">
       <div class="cert-icon" style="background:rgba(0,119,181,.18)">🧠</div>
       <div><div class="cert-name">Generative AI for Everyone</div><div class="cert-issuer">Coursera · 2024</div></div>
     </div>
@@ -791,8 +911,46 @@ document.querySelectorAll('a,button,.skill-tag,.cert-card,.project-card,.edu-car
 });
 
 // ── SCROLL REVEAL ────────────────────────────────
+// Generic reveal (.reveal, .timeline-item)
 const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:.1,rootMargin:'0px 0px -40px 0px'});
-document.querySelectorAll('.reveal,.timeline-item').forEach(el=>obs.observe(el));
+document.querySelectorAll('.reveal,.timeline-item,.about-bio,.about-skills').forEach(el=>obs.observe(el));
+
+// Section titles + labels slide in
+const titleObs=new IntersectionObserver(entries=>entries.forEach(e=>{
+  if(e.isIntersecting){e.target.classList.add('in-view');}
+}),{threshold:.2,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.section-title,.section-label').forEach(el=>titleObs.observe(el));
+// contact-title special
+document.querySelectorAll('.contact-title').forEach(el=>{
+  el.style.cssText+='opacity:0;transform:translateY(30px);transition:opacity .75s ease,transform .75s ease;';
+  new IntersectionObserver(entries=>entries.forEach(e=>{
+    if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';}
+  }),{threshold:.2}).observe(el);
+});
+
+// Project cards
+const pcObs=new IntersectionObserver(entries=>entries.forEach(e=>{
+  if(e.isIntersecting)e.target.classList.add('card-visible');
+}),{threshold:.1,rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('.project-card').forEach(el=>pcObs.observe(el));
+
+// Cert cards
+const ccObs=new IntersectionObserver(entries=>entries.forEach(e=>{
+  if(e.isIntersecting)e.target.classList.add('card-visible');
+}),{threshold:.15,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.cert-card').forEach(el=>ccObs.observe(el));
+
+// Edu cards
+const ecObs=new IntersectionObserver(entries=>entries.forEach(e=>{
+  if(e.isIntersecting)e.target.classList.add('card-visible');
+}),{threshold:.15,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.edu-card').forEach(el=>ecObs.observe(el));
+
+// Contact links
+const clObs=new IntersectionObserver(entries=>entries.forEach(e=>{
+  if(e.isIntersecting)e.target.classList.add('cl-visible');
+}),{threshold:.3});
+document.querySelectorAll('.contact-link').forEach(el=>clObs.observe(el));
 
 // ── STAT COUNTERS ────────────────────────────────
 const sObs=new IntersectionObserver(entries=>entries.forEach(e=>{
