@@ -579,23 +579,38 @@ footer{padding:2rem 4rem;border-top:1px solid var(--border);display:flex;justify
   .hero-photo-ring{width:260px;height:260px;}
 }
 @media(max-width:768px){
-  nav{top:.8rem;padding:.4rem .4rem .4rem 1rem;max-width:calc(100vw - 2rem);}
-  .nav-links a{font-size:.68rem;padding:.45rem .7rem;letter-spacing:.03em;}
-  .nav-cta{font-size:.7rem;padding:.48rem .9rem;}
+  nav{top:.8rem;padding:.4rem .4rem .4rem 1rem;max-width:calc(100vw - 1.5rem);overflow-x:auto;scrollbar-width:none;}
+  nav::-webkit-scrollbar{display:none;}
+  .nav-links a{font-size:.68rem;padding:.45rem .6rem;letter-spacing:.03em;}
+  .nav-cta{font-size:.7rem;padding:.48rem .8rem;}
   section{padding:4rem 1.5rem;} #hero{padding:6rem 1.5rem 3rem;}
   .hero-inner{grid-template-columns:1fr;text-align:center;gap:2.5rem;}
   .hero-photo-wrap{justify-content:center;order:-1;}
   .hero-photo-ring{width:220px;height:220px;}
   .hero-cta{justify-content:center;}
-  .hero-stats{justify-content:center;}
+  .hero-stats{justify-content:center;flex-wrap:wrap;gap:1.5rem;}
   .hero-tag{margin-left:auto;margin-right:auto;}
   .about-grid{grid-template-columns:1fr;gap:0;}
   .about-divider{display:none;}
   .about-bio{margin-bottom:3rem;}
   .about-skills{padding-left:0 !important;}
+  .projects-grid{grid-template-columns:1fr;}
+  .cert-grid{grid-template-columns:1fr;}
   footer{flex-direction:column;gap:.5rem;text-align:center;}
   .edu-card{flex-direction:column;align-items:flex-start;gap:.5rem;}
   .badge-1,.badge-2,.badge-3{display:none;}
+}
+@media(max-width:480px){
+  .hero-photo-ring{width:180px;height:180px;}
+  .hero-name{font-size:2.2rem;}
+  .section-title{font-size:1.8rem;}
+  .project-card{padding:1.5rem;}
+  .contact-title{font-size:2rem;}
+  .floating-badge{bottom:1.5rem;right:1.5rem;width:48px;height:48px;font-size:1.1rem;}
+}
+@media(pointer: coarse){
+  .cursor, .cursor-ring{display:none !important;}
+  body{cursor:auto;}
 }
 </style>
 </head>
