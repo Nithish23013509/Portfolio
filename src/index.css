@@ -58,7 +58,7 @@ body {
   background-attachment: fixed;
   color: var(--text);
   font-family: var(--font-body);
-  overflow-x: hidden;
+  overflow-x: clip;
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -85,7 +85,8 @@ body::before {
 
 section {
   position: relative;
-  overflow: hidden;
+  overflow-x: clip;
+  overflow-y: visible;
   padding: 6.5rem clamp(1.25rem, 5vw, 5rem);
 }
 
