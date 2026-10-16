@@ -1,0 +1,204 @@
+.contact-section {
+  position: relative;
+  padding-bottom: 7rem;
+}
+
+.contact-container {
+  width: min(840px, 100%);
+  margin: 0 auto;
+}
+
+.contact-card {
+  padding: clamp(2rem, 5vw, 3.5rem);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  border-color: rgba(255, 255, 255, 0.12);
+  background: rgba(18, 18, 18, 0.82);
+}
+
+.contact-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), var(--accent-coral), transparent);
+}
+
+.contact-label {
+  margin-bottom: 1.25rem;
+}
+
+.contact-heading {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: #fff;
+  letter-spacing: -0.025em;
+  margin-bottom: 1.25rem;
+  max-width: 640px;
+}
+
+.contact-subtext {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  max-width: 580px;
+  margin-bottom: 2.25rem;
+}
+
+/* Copy bar */
+.email-copy-bar {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  background: rgba(14, 14, 14, 0.95);
+  border: 1px solid rgba(255, 45, 45, 0.3);
+  box-shadow: 0 0 25px rgba(255, 45, 45, 0.1);
+  border-radius: var(--radius-pill);
+  padding: 0.45rem 0.6rem 0.45rem 1.4rem;
+  margin-bottom: 2.5rem;
+  max-width: 100%;
+}
+
+.email-text {
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  color: #fff;
+  letter-spacing: 0.02em;
+}
+
+.copy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 700;
+  padding: 0.45rem 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.copy-btn:hover {
+  background: #ff4747;
+  box-shadow: 0 2px 14px rgba(255, 45, 45, 0.5);
+  transform: scale(1.03);
+}
+
+/* Links Grid */
+.contact-links-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  width: 100%;
+}
+
+.contact-item-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  text-decoration: none;
+  transition: all 0.25s var(--ease);
+  position: relative;
+}
+
+.contact-item-btn:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 45, 45, 0.35);
+  background: rgba(255, 45, 45, 0.06);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 0 16px rgba(255, 45, 45, 0.12);
+}
+
+.contact-item-btn.is-primary {
+  border-color: rgba(255, 45, 45, 0.35);
+  background: rgba(255, 45, 45, 0.08);
+}
+
+.contact-item-btn.is-primary:hover {
+  background: rgba(255, 45, 45, 0.16);
+  border-color: var(--accent);
+}
+
+.link-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.link-info {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  overflow: hidden;
+}
+
+.link-label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.link-val {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--text);
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.external-arrow {
+  margin-left: auto;
+  color: var(--text-dim);
+  transition: transform 0.2s ease, color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.contact-item-btn:hover .external-arrow {
+  color: var(--accent);
+  transform: translate(2px, -2px);
+}
+
+@media (max-width: 680px) {
+  .contact-links-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .email-copy-bar {
+    width: 100%;
+    justify-content: space-between;
+    padding: 0.4rem 0.5rem 0.4rem 0.9rem;
+  }
+
+  .email-text {
+    font-size: 0.76rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

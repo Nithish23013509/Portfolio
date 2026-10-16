@@ -1,0 +1,82 @@
+.certifications-section {
+  position: relative;
+}
+
+.cert-grid {
+  width: min(1200px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 1.25rem;
+}
+
+.cert-card {
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.15rem;
+  transition: all 0.3s var(--ease);
+  position: relative;
+  overflow: hidden;
+}
+
+.cert-card:hover {
+  border-color: rgba(255, 45, 45, 0.35);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45), 0 0 24px rgba(255, 45, 45, 0.12);
+}
+
+.cert-icon-box {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.cert-card:hover .cert-icon-box {
+  transform: scale(1.1) rotate(4deg);
+}
+
+.cert-emoji {
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.cert-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.cert-year-tag {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  margin-bottom: 0.25rem;
+}
+
+.cert-title {
+  font-family: var(--font-heading);
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.3;
+  margin-bottom: 0.3rem;
+}
+
+.cert-issuer-text {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: var(--text-muted);
+}
+
+/* Individual Card Accent Glints */
+.cert-aws .cert-icon-box { background: rgba(245, 158, 11, 0.12); border-color: rgba(245, 158, 11, 0.25); }
+.cert-ibm .cert-icon-box { background: rgba(56, 189, 248, 0.12); border-color: rgba(56, 189, 248, 0.25); }
+.cert-google .cert-icon-box { background: rgba(26, 255, 117, 0.12); border-color: rgba(26, 255, 117, 0.25); }
+.cert-ai .cert-icon-box { background: rgba(255, 45, 45, 0.12); border-color: rgba(255, 45, 45, 0.25); }

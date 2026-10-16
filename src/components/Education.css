@@ -1,0 +1,78 @@
+.education-section {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: rgba(13, 13, 13, 0.5);
+}
+
+.education-grid {
+  width: min(980px, 100%);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.edu-card {
+  padding: 1.5rem 1.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.3s var(--ease);
+}
+
+.edu-card.is-current {
+  border-color: rgba(255, 45, 45, 0.3);
+  background: rgba(22, 22, 22, 0.85);
+}
+
+.edu-card:hover {
+  transform: translateX(6px);
+  border-color: rgba(255, 45, 45, 0.35);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 45, 45, 0.1);
+}
+
+.edu-info {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.edu-status-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.edu-period-pill {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--accent);
+  background: rgba(255, 45, 45, 0.08);
+  border: 1px solid rgba(255, 45, 45, 0.25);
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radius-pill);
+}
+
+.edu-current-badge {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  color: var(--accent-secondary);
+  background: rgba(26, 255, 117, 0.08);
+  border: 1px solid rgba(26, 255, 117, 0.25);
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-pill);
+}
+
+.edu-degree-title {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.25rem;
+}
+
+.edu-school-name {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+}
