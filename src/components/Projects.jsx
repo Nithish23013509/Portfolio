@@ -23,23 +23,23 @@ export default function Projects() {
         </h2>
         <p className="section-kicker">
           A curated gallery of full-stack systems, banking APIs, interactive dashboards,
-          and security extensions. Scroll naturally to watch the cards stack into view, or click to explore the full case study.
+          and security extensions. Scroll to watch the cards stack into a deck, or click to explore the complete case study.
         </p>
       </motion.div>
 
-      {/* Full-Page Window Scroll Stack */}
+      {/* Continuous Page Window Scroll Stack */}
       <div className="projects-stack-container">
         <ScrollStack
-          itemDistance={200}
-          itemStackDistance={24}
-          stackPosition="120px"
-          itemScale={0.045}
-          baseScale={0.85}
-          dimAmount={0.22}
+          itemDistance={40}
+          itemStackDistance={20}
+          stackPosition="85px"
+          itemScale={0.035}
+          baseScale={0.88}
+          dimAmount={0.2}
           blurAmount={0}
           tiltAmount={0}
           rotationAmount={0}
-          holdDistance={220}
+          holdDistance={35}
           smoothScroll={false}
           snap={false}
           useWindowScroll={true}

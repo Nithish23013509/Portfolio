@@ -34,8 +34,8 @@
 
 .scroll-stack__inner {
   position: relative;
-  padding-inline: clamp(0.75rem, 2.5vw, 1.75rem);
-  max-width: 1200px;
+  padding-inline: 0;
+  max-width: min(var(--container-width, 1140px), 100%);
   margin: 0 auto;
 }
 

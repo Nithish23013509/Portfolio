@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import ScrollProgress from './components/ScrollProgress';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
+import Home from './components/Hero';
 import About from './components/About';
 import Projects from './components/Projects';
 import Experience from './components/Experience';
@@ -11,6 +11,7 @@ import Education from './components/Education';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Loader from './components/Loader';
+import CustomCursor from './components/CustomCursor';
 import './App.css';
 
 export default function App() {
@@ -27,10 +28,14 @@ export default function App() {
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+    if (window.location.hash) {
+      history.pushState(null, '', '#home');
+    }
   };
 
   return (
     <div className="portfolio-app">
+      <CustomCursor />
       <Loader onComplete={() => setLoading(false)} />
       <ScrollProgress />
 
@@ -40,7 +45,7 @@ export default function App() {
       <Navbar />
 
       <main className="main-content">
-        <Hero />
+        <Home />
         <About />
         <Projects />
         <Experience />

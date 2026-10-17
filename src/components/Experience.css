@@ -1,16 +1,23 @@
 .experience-section {
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  background: rgba(13, 13, 13, 0.5);
+  position: relative;
+  scroll-margin-top: 85px;
+  background: transparent;
+}
+
+.experience-header {
+  max-width: 760px;
+  margin-bottom: clamp(1.25rem, 2.5vw, 1.85rem);
+  position: relative;
+  z-index: 2;
 }
 
 .experience-timeline {
-  width: min(980px, 100%);
+  width: min(var(--container-width), 100%);
   margin: 0 auto;
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 2.2rem;
+  gap: 1.75rem;
   padding-left: 2rem;
 }
 

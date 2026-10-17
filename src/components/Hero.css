@@ -1,12 +1,15 @@
 .hero-section {
-  min-height: 100svh;
+  min-height: auto;
   display: flex;
   align-items: center;
-  padding-top: clamp(6.5rem, 12vh, 8.5rem);
-  padding-bottom: clamp(4rem, 8vh, 6rem);
+  padding-top: clamp(7.25rem, 11.5vh, 8.75rem);
+  padding-bottom: clamp(3rem, 5vh, 4.25rem);
+  padding-left: var(--section-padding-x);
+  padding-right: var(--section-padding-x);
   position: relative;
-  overflow: hidden;
-  background-color: var(--bg);
+  overflow-x: clip;
+  overflow-y: visible;
+  background-color: transparent;
 }
 
 /* Subtle dark gradient overlay ensuring pristine contrast behind the left copy */
@@ -33,7 +36,7 @@
   pointer-events: none;
   z-index: 1;
   overflow: hidden;
-  opacity: 0.58;
+  opacity: 0.42;
   mask-image: radial-gradient(
     ellipse 95% 85% at 65% 45%,
     rgba(0, 0, 0, 0.95) 25%,
@@ -51,11 +54,11 @@
 .hero-container {
   position: relative;
   z-index: 2;
-  width: min(1200px, 92%);
+  width: min(var(--container-width), 100%);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(340px, 0.75fr);
-  gap: clamp(2rem, 5vw, 4.5rem);
+  grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
+  gap: clamp(2.5rem, 4.5vw, 4.25rem);
   align-items: center;
 }
 
@@ -110,30 +113,33 @@
 /* Hero Title */
 .hero-title {
   font-family: var(--font-heading);
-  line-height: 1.08;
   letter-spacing: -0.025em;
   margin-bottom: 1.35rem;
 }
 
 .hero-name-line {
   display: block;
-  font-size: clamp(2.8rem, 5.2vw, 4.4rem);
-  font-weight: 800;
-  color: #ffffff;
-  letter-spacing: -0.03em;
-  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.8);
+  width: 100%;
   line-height: 1.05;
 }
 
-/* Animated Role Line - Fixed height and clean vertical alignment to prevent clipping */
+.hero-warp-name {
+  width: 100%;
+  max-width: 520px;
+  height: clamp(3.2rem, 5.8vw, 4.8rem);
+  min-height: auto;
+  overflow: visible;
+  filter: drop-shadow(0 2px 18px rgba(0, 0, 0, 0.8));
+}
+
+/* Static Role Line */
 .hero-role-line {
-  display: flex;
-  align-items: center;
-  font-size: clamp(1.7rem, 3.4vw, 2.75rem);
+  display: inline-flex;
+  align-items: baseline;
+  font-size: clamp(1.45rem, 2.8vw, 2.25rem);
   font-weight: 700;
-  min-height: clamp(2.3rem, 4.4vw, 3.5rem);
-  margin-top: 0.35rem;
-  line-height: 1.2;
+  margin-top: 0.45rem;
+  line-height: 1.25;
 }
 
 .gradient-text {
@@ -144,8 +150,11 @@
   background-clip: text;
   background-size: 200% auto;
   animation: gradientPan 7s linear infinite;
-  padding-bottom: 0.12em; /* Prevents descender clipping on letters like g, y, p */
+  padding-block: 0.1em 0.18em;
+  margin-block: -0.1em -0.18em;
+  padding-inline-end: 2px;
   letter-spacing: -0.015em;
+  overflow: visible;
 }
 
 @keyframes gradientPan {
@@ -154,30 +163,13 @@
   100% { background-position: 0% center; }
 }
 
-.typewriter-cursor {
-  display: inline-block;
-  width: 2.5px;
-  height: 0.9em;
-  background: var(--accent);
-  margin-left: 6px;
-  border-radius: 2px;
-  box-shadow: 0 0 8px rgba(255, 45, 45, 0.6);
-  animation: blinkCursor 0.9s step-end infinite;
-  flex-shrink: 0;
-}
-
-@keyframes blinkCursor {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
-
 /* Positioning Summary */
 .hero-summary {
   font-size: clamp(0.98rem, 1.35vw, 1.08rem);
   color: rgba(225, 225, 225, 0.72);
   line-height: 1.75;
   max-width: 540px;
-  margin-bottom: 2.25rem;
+  margin-bottom: 2rem;
 }
 
 .hero-summary strong {
@@ -192,7 +184,7 @@
   align-items: center;
   gap: 0.85rem;
   flex-wrap: wrap;
-  margin-bottom: 2.75rem;
+  margin-bottom: 0;
 }
 
 .btn-hero-primary,
@@ -202,16 +194,20 @@
   align-items: center;
   justify-content: center;
   gap: 0.55rem;
+  height: 48px;
   min-height: 48px;
-  padding: 0.78rem 1.45rem;
-  border-radius: var(--radius-sm);
+  padding: 0 1.5rem;
+  box-sizing: border-box;
+  border-radius: var(--radius-sm, 10px);
   font-family: var(--font-heading);
   font-size: 0.92rem;
-  font-weight: 700;
-  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  font-weight: 600;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   overflow: hidden;
   text-decoration: none;
+  line-height: 1;
+  white-space: nowrap;
 }
 
 .btn-hero-primary {
@@ -236,7 +232,7 @@
 
 .btn-hero-primary:hover {
   background: linear-gradient(135deg, #ff3d3d 0%, #e82727 100%);
-  box-shadow: 0 8px 28px rgba(255, 45, 45, 0.48), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  box-shadow: 0 6px 24px rgba(255, 45, 45, 0.44), inset 0 1px 0 rgba(255, 255, 255, 0.35);
   transform: translateY(-2px);
 }
 
@@ -263,9 +259,9 @@
 
 .btn-hero-secondary:hover {
   background: rgba(255, 45, 45, 0.08);
-  border-color: rgba(255, 45, 45, 0.6);
+  border-color: rgba(255, 45, 45, 0.55);
   color: #ffffff;
-  box-shadow: 0 6px 22px rgba(255, 45, 45, 0.2);
+  box-shadow: 0 6px 20px rgba(255, 45, 45, 0.22);
   transform: translateY(-2px);
 }
 
@@ -275,51 +271,27 @@
 
 .btn-hero-ghost {
   background: rgba(18, 18, 18, 0.65);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   color: rgba(235, 235, 235, 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
 }
 
+.btn-hero-ghost svg {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
 .btn-hero-ghost:hover {
-  border-color: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.25);
   background: rgba(255, 255, 255, 0.06);
   color: #ffffff;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
   transform: translateY(-2px);
 }
 
-/* Stats Row */
-.hero-stats-row {
-  display: flex;
-  gap: 2.5rem;
-  padding-top: 1.75rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  max-width: 540px;
-}
-
-.hero-stat-item {
-  display: flex;
-  flex-direction: column;
-}
-
-.stat-number {
-  font-family: var(--font-heading);
-  font-size: 1.75rem;
-  font-weight: 800;
-  color: #ff3333;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-}
-
-.stat-description {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  color: rgba(200, 200, 200, 0.6);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-top: 0.3rem;
+.btn-hero-ghost:hover svg {
+  transform: translateY(-1px);
 }
 
 /* Right Column: Visual Stage */
@@ -332,7 +304,7 @@
 .profile-stage {
   position: relative;
   width: 320px;
-  height: 320px;
+  max-width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -342,87 +314,16 @@
 .stage-ambient-glow {
   position: absolute;
   inset: -18px;
-  border-radius: 50%;
+  border-radius: 28px;
   background: radial-gradient(
     circle,
-    rgba(255, 45, 45, 0.12) 0%,
-    rgba(255, 75, 45, 0.04) 55%,
+    rgba(255, 45, 45, 0.16) 0%,
+    rgba(255, 75, 45, 0.05) 55%,
     transparent 75%
   );
-  filter: blur(32px);
+  filter: blur(36px);
   pointer-events: none;
   z-index: 0;
-}
-
-/* Orbiting Dashed Ring */
-.orbital-dashed-ring {
-  position: absolute;
-  inset: -20px;
-  border-radius: 50%;
-  border: 1px dashed rgba(255, 45, 45, 0.2);
-  animation: spinOrbital 28s linear infinite reverse;
-  pointer-events: none;
-  z-index: 1;
-}
-
-@keyframes spinOrbital {
-  to { transform: rotate(360deg); }
-}
-
-/* Gradient Border Ring - Pure black and fiery red luxury aesthetic */
-.profile-ring-outer {
-  position: relative;
-  width: 280px;
-  height: 280px;
-  border-radius: 50%;
-  padding: 3.5px;
-  background: conic-gradient(
-    from 0deg,
-    #ff2d2d,
-    #ff5c38,
-    rgba(255, 45, 45, 0.25),
-    #ff2d2d
-  );
-  box-shadow: 0 0 26px rgba(255, 45, 45, 0.25), inset 0 0 12px rgba(255, 45, 45, 0.15);
-  animation: spinConic 9s linear infinite;
-  z-index: 2;
-}
-
-@keyframes spinConic {
-  to { transform: rotate(360deg); }
-}
-
-.profile-ring-inner {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background: #0a0a0a;
-  padding: 4.5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  animation: spinConic 9s linear infinite reverse;
-}
-
-.profile-photo-container {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  overflow: hidden;
-  background: #0d0d0d;
-  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.9);
-}
-
-.profile-photo {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 20%;
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.profile-photo-container:hover .profile-photo {
-  transform: scale(1.06);
 }
 
 /* Floating Technology & Status Badges */
@@ -463,25 +364,25 @@
   letter-spacing: 0.02em;
 }
 
-/* Desktop Badge Coordinates with Harmonic Symmetry */
+/* Desktop Badge Coordinates with Harmonic Symmetry around ProfileCard */
 .badge-top-left {
-  top: 14px;
-  left: -44px;
+  top: -14px;
+  left: -32px;
 }
 
 .badge-top-right {
-  top: 18px;
-  right: -48px;
+  top: -14px;
+  right: -32px;
 }
 
 .badge-bottom-left {
-  bottom: 26px;
-  left: -52px;
+  bottom: -16px;
+  left: -32px;
 }
 
 .badge-bottom-right {
-  bottom: 18px;
-  right: -38px;
+  bottom: -16px;
+  right: -32px;
 }
 
 /* =========================================================================
@@ -491,8 +392,8 @@
 /* Tablet (Landscape & Stacked) */
 @media (max-width: 1080px) {
   .hero-section {
-    padding-top: 7rem;
-    padding-bottom: 4.5rem;
+    padding-top: clamp(7rem, 11vh, 8.5rem);
+    padding-bottom: clamp(3rem, 5vh, 4.25rem);
   }
 
   .hero-container {
@@ -511,6 +412,11 @@
     margin-right: auto;
   }
 
+  .hero-warp-name {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .hero-role-line {
     justify-content: center;
   }
@@ -524,12 +430,6 @@
     justify-content: center;
   }
 
-  .hero-stats-row {
-    margin-left: auto;
-    margin-right: auto;
-    justify-content: center;
-  }
-
   .hero-visual {
     order: -1;
   }
@@ -538,22 +438,15 @@
 /* Tablet (Portrait) */
 @media (max-width: 768px) {
   .hero-section {
-    padding-top: 6.5rem;
-    padding-bottom: 4rem;
+    padding-top: clamp(6.75rem, 10vh, 8rem);
+    padding-bottom: clamp(2.5rem, 4.5vh, 3.5rem);
   }
 
   .profile-stage {
-    width: 270px;
-    height: 270px;
-  }
-
-  .profile-ring-outer {
-    width: 240px;
-    height: 240px;
-  }
-
-  .orbital-dashed-ring {
-    inset: -16px;
+    width: 290px;
+    max-width: 100%;
+    height: auto;
+    margin: 1rem auto 1.5rem;
   }
 
   .floating-tech-badge {
@@ -563,66 +456,53 @@
 
   /* Keep badges neatly within viewport boundaries on tablet */
   .badge-top-left {
-    top: 4px;
+    top: -12px;
     left: -20px;
   }
 
   .badge-top-right {
-    top: 8px;
-    right: -24px;
+    top: -12px;
+    right: -20px;
   }
 
   .badge-bottom-left {
-    bottom: 14px;
-    left: -24px;
+    bottom: -14px;
+    left: -20px;
   }
 
   .badge-bottom-right {
-    bottom: 10px;
-    right: -18px;
-  }
-
-  .hero-stats-row {
-    gap: 1.75rem;
-  }
-
-  .stat-number {
-    font-size: 1.55rem;
+    bottom: -14px;
+    right: -20px;
   }
 }
 
 /* Mobile */
 @media (max-width: 520px) {
   .hero-section {
-    padding-top: 5.75rem;
-    padding-bottom: 3.5rem;
+    padding-top: clamp(6.75rem, 11vh, 7.75rem);
+    padding-bottom: clamp(2.5rem, 4vh, 3.25rem);
   }
 
   .hero-title {
     margin-bottom: 1rem;
   }
 
-  .hero-name-line {
-    font-size: clamp(2.3rem, 9.5vw, 3rem);
+  .hero-warp-name {
+    margin-left: auto;
+    margin-right: auto;
+    height: clamp(2.8rem, 9.5vw, 3.6rem);
   }
 
   .hero-role-line {
-    font-size: clamp(1.4rem, 5.5vw, 1.85rem);
-    min-height: 2.2em;
+    font-size: clamp(1.2rem, 5vw, 1.65rem);
+    justify-content: center;
   }
 
   .profile-stage {
-    width: 230px;
-    height: 230px;
-  }
-
-  .profile-ring-outer {
-    width: 200px;
-    height: 200px;
-  }
-
-  .orbital-dashed-ring {
-    inset: -12px;
+    width: 260px;
+    max-width: 82vw;
+    height: auto;
+    margin: 1.25rem auto;
   }
 
   .floating-tech-badge {
@@ -637,7 +517,7 @@
   }
 
   .badge-top-right {
-    top: -6px;
+    top: -10px;
     right: -8px;
   }
 
@@ -647,7 +527,7 @@
   }
 
   .badge-bottom-right {
-    bottom: -6px;
+    bottom: -10px;
     right: -8px;
   }
 
@@ -661,22 +541,5 @@
   .btn-hero-secondary,
   .btn-hero-ghost {
     width: 100%;
-  }
-
-  .hero-stats-row {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.6rem;
-    width: 100%;
-    text-align: center;
-    padding-top: 1.4rem;
-  }
-
-  .stat-number {
-    font-size: 1.4rem;
-  }
-
-  .stat-description {
-    font-size: 0.62rem;
   }
 }

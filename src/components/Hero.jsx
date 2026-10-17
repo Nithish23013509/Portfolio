@@ -1,20 +1,8 @@
-import { useEffect, useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import LightPillar from './LightPillar';
+import ProfileCard from './ProfileCard';
+import WarpText from './WarpText';
 import './Hero.css';
-
-const titles = [
-  'Full Stack Developer',
-  'Spring Boot Engineer',
-  'React.js Developer',
-  'AWS Cloud Practitioner'
-];
-
-const stats = [
-  { value: '3+', label: 'Full-Stack Projects' },
-  { value: '3', label: 'Internships & Training' },
-  { value: '4', label: 'Certifications' }
-];
 
 const floatingBadges = [
   { id: 'aws', label: 'AWS Certified', dotColor: '#f59e0b', glowColor: 'rgba(245, 158, 11, 0.4)', positionClass: 'badge-top-left', delay: 0 },
@@ -24,85 +12,65 @@ const floatingBadges = [
 ];
 
 export default function Hero() {
-  const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
-  const [displayText, setDisplayText] = useState('');
-  const [isDeleting, setIsDeleting] = useState(false);
   const reduceMotion = useReducedMotion();
-
-  // Typewriter effect with smooth timing and no clipping
-  useEffect(() => {
-    if (reduceMotion) {
-      setDisplayText(titles[0]);
-      return undefined;
-    }
-
-    const currentFullTitle = titles[currentTitleIndex];
-    let typingSpeed = isDeleting ? 32 : 72;
-
-    if (!isDeleting && displayText === currentFullTitle) {
-      // Extended pause at complete title for comfortable reading
-      const pauseTimeout = setTimeout(() => {
-        setIsDeleting(true);
-      }, 2600);
-      return () => clearTimeout(pauseTimeout);
-    }
-
-    if (isDeleting && displayText === '') {
-      // Natural brief breath before typing next title
-      const nextTitleTimeout = setTimeout(() => {
-        setIsDeleting(false);
-        setCurrentTitleIndex((prev) => (prev + 1) % titles.length);
-      }, 350);
-      return () => clearTimeout(nextTitleTimeout);
-    }
-
-    const timer = setTimeout(() => {
-      setDisplayText((prev) => {
-        if (isDeleting) {
-          return currentFullTitle.substring(0, prev.length - 1);
-        }
-        return currentFullTitle.substring(0, prev.length + 1);
-      });
-    }, typingSpeed);
-
-    return () => clearTimeout(timer);
-  }, [displayText, isDeleting, currentTitleIndex, reduceMotion]);
 
   const scrollToProjects = (event) => {
     event.preventDefault();
     const projectsEl = document.querySelector('#projects');
     if (projectsEl) {
-      const headerOffset = 85;
+      const headerOffset = 80;
       const elementPosition = projectsEl.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
       window.scrollTo({
         top: offsetPosition,
         behavior: reduceMotion ? 'auto' : 'smooth'
       });
+      if (window.location.hash !== '#projects') {
+        history.pushState(null, '', '#projects');
+      }
+    }
+  };
+
+  const handleContactClick = () => {
+    const contactEl = document.querySelector('#contact');
+    if (contactEl) {
+      const headerOffset = 80;
+      const elementPosition = contactEl.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: reduceMotion ? 'auto' : 'smooth'
+      });
+      if (window.location.hash !== '#contact') {
+        history.pushState(null, '', '#contact');
+      }
+    } else {
+      window.location.href = 'mailto:nithish81227@gmail.com';
     }
   };
 
   return (
-    <section id="hero" className="hero-section">
+    <section id="home" className="hero-section home-section">
+      <span id="hero" style={{ position: 'absolute', top: 0, pointerEvents: 'none' }} aria-hidden="true" />
       <div className="hero-light-pillar-wrapper" aria-hidden="true">
         <LightPillar
           topColor="#ff2d2d"
           bottomColor="#ea5c08"
-          intensity={0.6}
-          glowAmount={0.0013}
-          bloom={0.3}
-          pillarWidth={2.4}
-          pillarHeight={0.4}
+          intensity={0.42}
+          glowAmount={0.001}
+          bloom={0.2}
+          pillarWidth={2.2}
+          pillarHeight={0.38}
           pillarRotation={20}
-          rotationSpeed={0.22}
+          rotationSpeed={0.2}
           interactive
           clickPulse
           intro
           quality="high"
           mixBlendMode="normal"
-          flow={1.05}
-          noiseIntensity={0.25}
-          fade={0.75}
+          flow={1.02}
+          noiseIntensity={0.22}
+          fade={0.78}
         />
       </div>
 
@@ -120,12 +88,34 @@ export default function Hero() {
             <span>Available for opportunities</span>
           </div>
 
-          {/* Dominant Name & Animated Subtitle */}
+          {/* Dominant Name with WarpText & Static Subtitle */}
           <h1 className="hero-title">
-            <span className="hero-name-line">Nithish S</span>
-            <span className="hero-role-line" aria-label={`Role: ${displayText}`}>
-              <span className="gradient-text">{displayText || 'Full Stack Developer'}</span>
-              <span className="typewriter-cursor" aria-hidden="true" />
+            <span className="hero-name-line">
+              <WarpText
+                text="Nithish S"
+                color="#ffffff"
+                warpStrength={0.05}
+                warpScale={1.6}
+                speed={0.3}
+                pointerInfluence={0.35}
+                pointerStrength={0.25}
+                refraction={0.01}
+                chromatic={0}
+                ripple={false}
+                clickRipple={true}
+                idleDrift={0.03}
+                lens="bulge"
+                intro={false}
+                fontSize="clamp(2.8rem, 5.2vw, 4.4rem)"
+                fontWeight={800}
+                fontFamily="var(--font-heading)"
+                letterSpacing="-0.03em"
+                lineHeight={1.05}
+                className="hero-warp-name"
+              />
+            </span>
+            <span className="hero-role-line">
+              <span className="gradient-text">Full Stack Developer</span>
             </span>
           </h1>
 
@@ -168,19 +158,9 @@ export default function Hero() {
               <span>Get in Touch</span>
             </a>
           </div>
-
-          {/* Stats Bar */}
-          <div className="hero-stats-row">
-            {stats.map((stat) => (
-              <div className="hero-stat-item" key={stat.label}>
-                <span className="stat-number">{stat.value}</span>
-                <span className="stat-description">{stat.label}</span>
-              </div>
-            ))}
-          </div>
         </motion.div>
 
-        {/* Right Column: Circular Profile Frame with Orbiting Badges */}
+        {/* Right Column: Holographic 3D ProfileCard with Orbiting Badges */}
         <motion.div
           className="hero-visual"
           initial={{ opacity: 0, scale: 0.9, y: 30 }}
@@ -191,21 +171,20 @@ export default function Hero() {
             {/* Ambient Backlight Glow */}
             <div className="stage-ambient-glow" />
 
-            {/* Orbital Dashed Ring */}
-            <div className="orbital-dashed-ring" />
-
-            {/* Glowing Conic Ring Container */}
-            <div className="profile-ring-outer">
-              <div className="profile-ring-inner">
-                <div className="profile-photo-container">
-                  <img
-                    src="/Nithish_img.png"
-                    alt="Nithish S - Full Stack Developer"
-                    className="profile-photo"
-                  />
-                </div>
-              </div>
-            </div>
+            <ProfileCard
+              avatarUrl="/Nithish_img.png"
+              name=""
+              title=""
+              showUserInfo={false}
+              holo={0.8}
+              glare={0.55}
+              tiltStrength={12}
+              parallax={8}
+              radius={20}
+              enableTilt={true}
+              intro={true}
+              theme="dark"
+            />
 
             {/* 4 Floating Technology & Status Badges */}
             {floatingBadges.map((b) => (

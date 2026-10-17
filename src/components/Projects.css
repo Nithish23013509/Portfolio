@@ -1,45 +1,30 @@
 .projects-section {
   position: relative;
-  overflow: visible !important;
-  scroll-margin-top: 100px;
-  padding-top: clamp(4.5rem, 8vh, 6.5rem);
-  padding-bottom: clamp(4.5rem, 8vh, 6.5rem);
+  scroll-margin-top: 85px;
+  padding-top: var(--section-padding-y);
+  padding-bottom: var(--section-padding-y);
+  padding-left: var(--section-padding-x);
+  padding-right: var(--section-padding-x);
+  overflow-x: clip;
+  overflow-y: visible;
 }
 
-.projects-header {
-  max-width: 820px;
-  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+.projects-container {
+  width: min(var(--container-width), 100%);
+  margin: 0 auto;
+}
+
+.projects-header,
+.projects-container .section-header {
+  max-width: 760px;
+  margin-bottom: clamp(1.25rem, 2.5vw, 1.85rem);
   position: relative;
   z-index: 2;
 }
 
-.projects-header .section-title {
-  margin-bottom: 1.25rem;
-}
-
-.projects-header .section-kicker {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-/* =========================================================================
-   SCROLL STACK CONTAINER (Full-Page Window Scroll)
-   ========================================================================= */
-
 .projects-stack-container {
-  width: min(1200px, 100%);
+  width: min(var(--container-width), 100%);
   margin: 0 auto;
   position: relative;
   overflow: visible;
-}
-
-@media (max-width: 768px) {
-  .projects-section {
-    padding-top: 3.5rem;
-    padding-bottom: 3.5rem;
-  }
-
-  .projects-header {
-    margin-bottom: 2rem;
-  }
 }

@@ -1,6 +1,6 @@
 .contact-section {
   position: relative;
-  padding-bottom: 7rem;
+  scroll-margin-top: 85px;
 }
 
 .contact-container {
@@ -9,7 +9,7 @@
 }
 
 .contact-card {
-  padding: clamp(2rem, 5vw, 3.5rem);
+  padding: clamp(1.75rem, 4vw, 3rem);
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -32,26 +32,26 @@
 }
 
 .contact-label {
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
 }
 
 .contact-heading {
   font-family: var(--font-heading);
-  font-size: clamp(2.2rem, 5vw, 3.4rem);
-  font-weight: 800;
-  line-height: 1.15;
+  font-size: clamp(1.85rem, 3.2vw, 2.45rem);
+  font-weight: 700;
+  line-height: 1.2;
   color: #fff;
-  letter-spacing: -0.025em;
-  margin-bottom: 1.25rem;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.85rem;
   max-width: 640px;
 }
 
 .contact-subtext {
   color: var(--text-muted);
-  font-size: 1.05rem;
-  line-height: 1.8;
+  font-size: clamp(0.92rem, 1.2vw, 1rem);
+  line-height: 1.68;
   max-width: 580px;
-  margin-bottom: 2.25rem;
+  margin-bottom: 1.75rem;
 }
 
 /* Copy bar */
