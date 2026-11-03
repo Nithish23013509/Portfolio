@@ -4,7 +4,7 @@ import './SpotlightCard.css';
 export default function SpotlightCard({
   children,
   className = '',
-  spotlightColor = 'rgba(255, 45, 45, 0.18)',
+  spotlightColor = 'rgba(229, 35, 42, 0.16)',
   style,
   ...props
 }) {

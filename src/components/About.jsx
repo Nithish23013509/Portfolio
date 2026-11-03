@@ -98,7 +98,7 @@ export default function About() {
 
           <SpotlightCard
             className="about-bio-card"
-            spotlightColor="rgba(255, 45, 45, 0.16)"
+            spotlightColor="rgba(229, 35, 42, 0.16)"
           >
             <div className="bio-card-body">
               <p className="bio-lead">
@@ -200,7 +200,7 @@ export default function About() {
               >
                 <SpotlightCard
                   className="skill-category-group"
-                  spotlightColor="rgba(255, 45, 45, 0.16)"
+                  spotlightColor="rgba(229, 35, 42, 0.16)"
                 >
                   <div className="category-label-row">
                     <span className="category-title">{cat.name}</span>

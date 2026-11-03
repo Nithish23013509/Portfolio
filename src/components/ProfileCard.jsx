@@ -7,11 +7,11 @@ import './ProfileCard.css';
 
 const THEMES = {
   dark: {
-    '--pc-frame': 'rgba(20, 20, 24, 0.72)',
-    '--pc-frame-edge': 'rgba(255, 45, 45, 0.22)',
+    '--pc-frame': 'rgba(14, 18, 20, 0.8)',
+    '--pc-frame-edge': 'rgba(229, 35, 42, 0.28)',
     '--pc-frame-highlight': 'rgba(255, 255, 255, 0.08)',
-    '--pc-frame-shadow': '0 24px 50px -20px rgba(0, 0, 0, 0.9), 0 0 35px rgba(255, 45, 45, 0.12)',
-    '--pc-tile': 'linear-gradient(180deg, #1e1b24 0%, #121016 100%)',
+    '--pc-frame-shadow': '0 24px 50px -20px rgba(0, 0, 0, 0.95), 0 0 35px rgba(229, 35, 42, 0.16)',
+    '--pc-tile': 'linear-gradient(180deg, #151b1d 0%, #0d1113 100%)',
     '--pc-tile-edge': 'rgba(255, 255, 255, 0.08)',
     '--pc-tile-highlight': 'rgba(255, 255, 255, 0.12)',
     '--pc-tile-shadow': '0 4px 10px -4px rgba(0, 0, 0, 0.7)',

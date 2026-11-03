@@ -5,20 +5,20 @@ import './PillNav.css';
 
 const THEMES = {
   dark: {
-    '--pn-surface': 'rgba(14, 14, 16, 0.78)',
-    '--pn-solid': '#141416',
+    '--pn-surface': 'rgba(10, 13, 15, 0.82)',
+    '--pn-solid': '#0c1012',
     '--pn-edge': 'rgba(255, 255, 255, 0.08)',
     '--pn-rim': 'rgba(255, 255, 255, 0.07)',
     '--pn-shadow': '0 22px 44px -20px rgba(0, 0, 0, 0.8), 0 6px 16px -8px rgba(0, 0, 0, 0.5)',
-    '--pn-text': 'rgba(244, 244, 245, 0.68)',
+    '--pn-text': 'rgba(245, 247, 246, 0.72)',
     '--pn-strong': '#ffffff',
-    '--pn-pill': 'linear-gradient(135deg, #ff2d2d 0%, #d82323 100%)',
+    '--pn-pill': 'linear-gradient(135deg, #e5232a 0%, #b8161c 100%)',
     '--pn-pill-ink': '#ffffff',
-    '--pn-pill-shadow': 'inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 6px 18px -4px rgba(255, 45, 45, 0.45)',
-    '--pn-dot': '#ff2d2d',
-    '--pn-ring': 'rgba(255, 45, 45, 0.55)',
-    '--pn-row-hover': 'rgba(255, 45, 45, 0.08)',
-    '--pn-tile': 'linear-gradient(180deg, #242226 0%, #161519 100%)',
+    '--pn-pill-shadow': 'inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 6px 18px -4px rgba(229, 35, 42, 0.45)',
+    '--pn-dot': '#7ab8a9',
+    '--pn-ring': 'rgba(122, 184, 169, 0.65)',
+    '--pn-row-hover': 'rgba(229, 35, 42, 0.08)',
+    '--pn-tile': 'linear-gradient(180deg, #182022 0%, #0c1012 100%)',
     '--pn-tile-rim':
       'inset 0 0 0 1px rgba(255, 255, 255, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 4px 10px -4px rgba(0, 0, 0, 0.7)'
   },

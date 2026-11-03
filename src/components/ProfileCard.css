@@ -39,10 +39,10 @@
 }
 
 .profile-card:hover .profile-card__body {
-  border-color: rgba(255, 45, 45, 0.4);
+  border-color: rgba(122, 184, 169, 0.55);
   box-shadow:
     0 24px 50px -20px rgba(0, 0, 0, 0.95),
-    0 0 32px rgba(255, 45, 45, 0.2);
+    0 0 32px rgba(229, 35, 42, 0.22);
 }
 
 .profile-card__tile {
@@ -316,9 +316,9 @@
   flex: none;
   height: 34px;
   padding: 0 12px;
-  border: 1px solid rgba(255, 45, 45, 0.35);
+  border: 1px solid rgba(229, 35, 42, 0.35);
   border-radius: calc(var(--pc-radius) * 0.65);
-  background: rgba(255, 45, 45, 0.12);
+  background: rgba(229, 35, 42, 0.12);
   color: #ffffff;
   font-family: var(--font-mono, monospace);
   font-size: 12px;
@@ -329,10 +329,10 @@
 }
 
 .profile-card__contact:hover {
-  background: var(--accent, #ff2d2d);
+  background: var(--accent, #e5232a);
   color: #ffffff;
-  border-color: var(--accent, #ff2d2d);
-  box-shadow: 0 0 18px rgba(255, 45, 45, 0.45);
+  border-color: var(--accent, #e5232a);
+  box-shadow: 0 0 18px rgba(229, 35, 42, 0.45);
   transform: translateY(-1px);
 }
 
@@ -343,7 +343,7 @@
 }
 
 .profile-card__contact:focus-visible {
-  outline: 2px solid var(--accent, #ff2d2d);
+  outline: 2px solid var(--accent, #e5232a);
   outline-offset: 2px;
 }
 

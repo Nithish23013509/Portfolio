@@ -1,13 +1,19 @@
 .certifications-section {
   position: relative;
-  scroll-margin-top: 85px;
+  scroll-margin-top: 100px;
 }
 
 .cert-header {
-  max-width: 760px;
-  margin-bottom: clamp(1.25rem, 2.5vw, 1.85rem);
+  width: min(var(--container-width), 100%);
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: clamp(1.75rem, 3vw, 2.5rem);
   position: relative;
   z-index: 2;
+}
+
+.cert-header .section-title {
+  max-width: 760px;
 }
 
 .cert-grid {
@@ -31,8 +37,8 @@
 }
 
 .cert-card:hover {
-  border-color: rgba(255, 45, 45, 0.35);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45), 0 0 24px rgba(255, 45, 45, 0.12);
+  border-color: rgba(229, 35, 42, 0.35);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5), 0 0 24px rgba(229, 35, 42, 0.14);
 }
 
 .cert-icon-box {
@@ -65,7 +71,7 @@
 .cert-year-tag {
   font-family: var(--font-mono);
   font-size: 0.68rem;
-  color: var(--accent);
+  color: var(--accent-secondary);
   letter-spacing: 0.08em;
   margin-bottom: 0.25rem;
 }
@@ -86,7 +92,7 @@
 }
 
 /* Individual Card Accent Glints */
-.cert-aws .cert-icon-box { background: rgba(245, 158, 11, 0.12); border-color: rgba(245, 158, 11, 0.25); }
-.cert-ibm .cert-icon-box { background: rgba(56, 189, 248, 0.12); border-color: rgba(56, 189, 248, 0.25); }
-.cert-google .cert-icon-box { background: rgba(26, 255, 117, 0.12); border-color: rgba(26, 255, 117, 0.25); }
-.cert-ai .cert-icon-box { background: rgba(255, 45, 45, 0.12); border-color: rgba(255, 45, 45, 0.25); }
+.cert-aws .cert-icon-box { background: rgba(229, 35, 42, 0.12); border-color: rgba(229, 35, 42, 0.3); }
+.cert-ibm .cert-icon-box { background: rgba(126, 175, 162, 0.12); border-color: rgba(126, 175, 162, 0.3); }
+.cert-google .cert-icon-box { background: rgba(126, 175, 162, 0.12); border-color: rgba(126, 175, 162, 0.3); }
+.cert-ai .cert-icon-box { background: rgba(229, 35, 42, 0.12); border-color: rgba(229, 35, 42, 0.3); }

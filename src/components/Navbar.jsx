@@ -24,7 +24,7 @@ export default function Navbar() {
       const initialTarget = document.querySelector(window.location.hash);
       if (initialTarget) {
         setTimeout(() => {
-          const headerOffset = 80;
+          const headerOffset = 90;
           const elementPosition = initialTarget.getBoundingClientRect().top;
           const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
           window.scrollTo({
@@ -82,7 +82,7 @@ export default function Navbar() {
     }
     const target = document.querySelector(href);
     if (!target) return;
-    const headerOffset = 80; // Clean headroom below the floating navbar
+    const headerOffset = 90; // Clean headroom below the floating navbar
     const elementPosition = target.getBoundingClientRect().top;
     const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
@@ -126,10 +126,10 @@ export default function Navbar() {
         userSelect: 'none'
       }}
     >
-      <span style={{ color: '#ff2d2d' }}>&lt;</span>
+      <span style={{ color: '#e5232a' }}>&lt;</span>
       <span style={{ color: '#ffffff' }}>NS</span>
-      <span style={{ color: '#ff4d4d' }}>/</span>
-      <span style={{ color: '#ff2d2d' }}>&gt;</span>
+      <span style={{ color: '#7eafa2' }}>/</span>
+      <span style={{ color: '#e5232a' }}>&gt;</span>
     </span>
   );
 
@@ -156,7 +156,7 @@ export default function Navbar() {
           indicator="dot"
           size="md"
           surface="glass"
-          highlightColor="#ff2d2d"
+          highlightColor="#e5232a"
           highlightTextColor="#ffffff"
           bounce={0.3}
           stretch={0.4}

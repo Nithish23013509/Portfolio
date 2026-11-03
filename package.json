@@ -15,7 +15,8 @@
     "framer-motion": "^14.1.0",
     "ogl": "^1.0.11",
     "react": "^19.2.8",
-    "react-dom": "^19.2.8"
+    "react-dom": "^19.2.8",
+    "vgpu": "^0.6.0"
   },
   "devDependencies": {
     "@types/react": "^19.2.18",

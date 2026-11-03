@@ -1,14 +1,14 @@
 import { motion, useReducedMotion } from 'framer-motion';
-import LightPillar from './LightPillar';
 import ProfileCard from './ProfileCard';
 import WarpText from './WarpText';
+import AeroShards from './AeroShards';
 import './Hero.css';
 
 const floatingBadges = [
-  { id: 'aws', label: 'AWS Certified', dotColor: '#f59e0b', glowColor: 'rgba(245, 158, 11, 0.4)', positionClass: 'badge-top-left', delay: 0 },
-  { id: 'work', label: 'Open to Work', dotColor: '#1aff75', glowColor: 'rgba(26, 255, 117, 0.45)', positionClass: 'badge-top-right', delay: 1.2 },
-  { id: 'spring', label: 'Spring Boot', dotColor: '#1aff75', glowColor: 'rgba(26, 255, 117, 0.4)', positionClass: 'badge-bottom-left', delay: 0.6 },
-  { id: 'react', label: 'React.js', dotColor: '#ff2d2d', glowColor: 'rgba(255, 45, 45, 0.4)', positionClass: 'badge-bottom-right', delay: 1.8 }
+  { id: 'aws', label: 'AWS Certified', dotColor: '#e5232a', glowColor: 'rgba(229, 35, 42, 0.55)', positionClass: 'badge-top-left', delay: 0 },
+  { id: 'work', label: 'Open to Work', dotColor: '#7ab8a9', glowColor: 'rgba(122, 184, 169, 0.65)', positionClass: 'badge-top-right', delay: 1.2 },
+  { id: 'spring', label: 'Spring Boot', dotColor: '#7ab8a9', glowColor: 'rgba(122, 184, 169, 0.65)', positionClass: 'badge-bottom-left', delay: 0.6 },
+  { id: 'react', label: 'React.js', dotColor: '#e5232a', glowColor: 'rgba(229, 35, 42, 0.55)', positionClass: 'badge-bottom-right', delay: 1.8 }
 ];
 
 export default function Hero() {
@@ -18,7 +18,7 @@ export default function Hero() {
     event.preventDefault();
     const projectsEl = document.querySelector('#projects');
     if (projectsEl) {
-      const headerOffset = 80;
+      const headerOffset = 90;
       const elementPosition = projectsEl.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
       window.scrollTo({
@@ -31,49 +31,24 @@ export default function Hero() {
     }
   };
 
-  const handleContactClick = () => {
-    const contactEl = document.querySelector('#contact');
-    if (contactEl) {
-      const headerOffset = 80;
-      const elementPosition = contactEl.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: reduceMotion ? 'auto' : 'smooth'
-      });
-      if (window.location.hash !== '#contact') {
-        history.pushState(null, '', '#contact');
-      }
-    } else {
-      window.location.href = 'mailto:nithish81227@gmail.com';
-    }
-  };
-
   return (
     <section id="home" className="hero-section home-section">
       <span id="hero" style={{ position: 'absolute', top: 0, pointerEvents: 'none' }} aria-hidden="true" />
-      <div className="hero-light-pillar-wrapper" aria-hidden="true">
-        <LightPillar
-          topColor="#ff2d2d"
-          bottomColor="#ea5c08"
-          intensity={0.42}
-          glowAmount={0.001}
-          bloom={0.2}
-          pillarWidth={2.2}
-          pillarHeight={0.38}
-          pillarRotation={20}
-          rotationSpeed={0.2}
-          interactive
-          clickPulse
-          intro
-          quality="high"
-          mixBlendMode="normal"
-          flow={1.02}
-          noiseIntensity={0.22}
-          fade={0.78}
+      <div className="hero-aero-shards-wrapper" aria-hidden="true">
+        <AeroShards
+          shardColor="#7ab8a9"
+          accentColor="#e5232a"
+          placement="full"
+          material="glass"
+          markers="plus"
+          count={1300}
+          depthOfField={0.75}
+          vignette={0.3}
+          mouseInteraction
+          pulseOnClick
+          holdToGather
         />
       </div>
-
       <div className="hero-container">
         {/* Left Column: Introduction & Copy */}
         <motion.div
@@ -82,13 +57,13 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
-          {/* Availability Pill */}
+          {/* Availability Pill with Signature Porsche Mint Theme */}
           <div className="hero-badge">
             <span className="badge-pulse-dot" />
             <span>Available for opportunities</span>
           </div>
 
-          {/* Dominant Name with WarpText & Static Subtitle */}
+          {/* Dominant Name with WarpText & Dual-Tone Headline (Built Differently aesthetic) */}
           <h1 className="hero-title">
             <span className="hero-name-line">
               <WarpText
@@ -115,18 +90,19 @@ export default function Hero() {
               />
             </span>
             <span className="hero-role-line">
-              <span className="gradient-text">Full Stack Developer</span>
+              <span className="role-word-crimson">Full Stack</span>{' '}
+              <span className="role-word-mint">Developer</span>
             </span>
           </h1>
 
           {/* Positioning Summary */}
           <p className="hero-summary">
             Full Stack Developer &amp; AWS Certified Cloud Practitioner. Building scalable
-            web apps with <strong>Java, Spring Boot</strong> &amp; <strong>React.js</strong> —
-            from robust APIs to animated UIs.
+            web apps with <strong className="highlight-mint">Java, Spring Boot</strong> &amp;{' '}
+            <strong className="highlight-crimson">React.js</strong> — from robust APIs to animated UIs.
           </p>
 
-          {/* CTA Buttons */}
+          {/* CTA Buttons: Motorsport Crimson & Porsche Mint Duo */}
           <div className="hero-actions">
             <a href="#projects" className="btn-hero-primary" onClick={scrollToProjects}>
               <span>View Projects</span>
@@ -168,7 +144,7 @@ export default function Hero() {
           transition={{ duration: 0.9, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
         >
           <div className="profile-stage">
-            {/* Ambient Backlight Glow */}
+            {/* Ambient Backlight Glow (Crimson light streak & Mint reflection) */}
             <div className="stage-ambient-glow" />
 
             <ProfileCard

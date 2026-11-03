@@ -16,9 +16,10 @@ export default function ScrollProgress() {
         left: 0,
         right: 0,
         height: '3px',
-        background: 'linear-gradient(90deg, var(--accent), var(--accent-coral), var(--accent-yellow))',
+        background: 'linear-gradient(90deg, var(--accent), var(--accent-coral), var(--accent-secondary))',
         transformOrigin: '0%',
-        scaleX
+        scaleX,
+        zIndex: 9999
       }}
     />
   );

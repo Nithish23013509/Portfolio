@@ -37,7 +37,7 @@
   left: -8rem;
   width: 32rem;
   height: 32rem;
-  background: radial-gradient(circle, rgba(255, 45, 45, 0.12) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(229, 35, 42, 0.15) 0%, transparent 70%);
   animation: pulseGlow 12s ease-in-out infinite alternate;
 }
 
@@ -46,7 +46,7 @@
   right: -10rem;
   width: 36rem;
   height: 36rem;
-  background: radial-gradient(circle, rgba(26, 255, 117, 0.08) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(126, 175, 162, 0.11) 0%, transparent 70%);
   animation: pulseGlow 14s ease-in-out infinite alternate-reverse;
 }
 
@@ -79,14 +79,14 @@
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   transition: all 0.3s var(--ease);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.55);
 }
 
 .back-to-top:hover {
   background: var(--accent);
-  color: #0a0a0a;
+  color: #080a0c;
   border-color: var(--accent);
-  box-shadow: 0 0 24px rgba(255, 45, 45, 0.5);
+  box-shadow: 0 0 24px rgba(229, 35, 42, 0.5);
   transform: translateY(-4px);
 }
 

@@ -17,10 +17,10 @@
 .project-modal-dialog {
   width: min(1040px, 100%);
   max-height: 90vh;
-  background: #0d0d0d;
+  background: #0a0d0f;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: var(--radius-lg);
-  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.85), 0 0 40px rgba(255, 45, 45, 0.12);
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.95), 0 0 40px rgba(229, 35, 42, 0.16);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -34,7 +34,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 0.9rem 1.5rem;
-  background: rgba(13, 13, 13, 0.95);
+  background: rgba(10, 13, 15, 0.95);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border);
   z-index: 10;
@@ -57,7 +57,7 @@
 }
 
 .modal-back-btn:hover {
-  color: var(--accent);
+  color: var(--accent-secondary);
   background: rgba(255, 255, 255, 0.04);
 }
 
@@ -70,7 +70,7 @@
 .modal-top-id {
   font-family: var(--font-mono);
   font-size: 0.75rem;
-  color: var(--accent);
+  color: var(--accent-secondary);
   font-weight: 600;
 }
 
@@ -97,9 +97,9 @@
 }
 
 .modal-close-icon-btn:hover {
-  background: rgba(255, 107, 107, 0.15);
-  border-color: rgba(255, 107, 107, 0.4);
-  color: #ff6b6b;
+  background: rgba(229, 35, 42, 0.15);
+  border-color: rgba(229, 35, 42, 0.4);
+  color: #ff5258;
   transform: rotate(90deg);
 }
 
@@ -182,7 +182,7 @@
 .modal-category-badge {
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  color: var(--accent);
+  color: var(--accent-secondary);
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin-bottom: 0.5rem;
@@ -270,14 +270,14 @@
 }
 
 .btn-live {
-  background: var(--accent);
+  background: linear-gradient(135deg, #e5232a 0%, #b8161c 100%);
   color: #fff;
-  box-shadow: 0 4px 18px rgba(255, 45, 45, 0.35);
+  box-shadow: 0 4px 18px rgba(229, 35, 42, 0.35);
 }
 
 .btn-live:hover {
-  background: #ff4747;
-  box-shadow: 0 6px 24px rgba(255, 45, 45, 0.55);
+  background: linear-gradient(135deg, #f02830 0%, #cf1b22 100%);
+  box-shadow: 0 6px 24px rgba(229, 35, 42, 0.55);
   transform: translateY(-2px);
 }
 
@@ -302,7 +302,7 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--accent);
+  background: linear-gradient(135deg, #e5232a 0%, #b8161c 100%);
   box-shadow: 0 0 10px var(--accent);
 }
 
@@ -346,11 +346,11 @@
 }
 
 .problem-tag {
-  color: #ff8b8b;
+  color: #ff5258;
 }
 
 .solution-tag {
-  color: var(--accent);
+  color: var(--accent-secondary);
 }
 
 /* Features Grid */
@@ -410,7 +410,7 @@
 .tech-category-title {
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  color: var(--accent);
+  color: var(--accent-secondary);
   letter-spacing: 0.1em;
   margin-bottom: 0.75rem;
   font-weight: 700;
@@ -476,7 +476,7 @@
 }
 
 .label-solved {
-  color: var(--accent);
+  color: var(--accent-secondary);
 }
 
 .challenge-col p {

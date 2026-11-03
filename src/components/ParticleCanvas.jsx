@@ -25,13 +25,14 @@ export default function ParticleCanvas() {
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
       const count = width < 768 ? 24 : 48;
-      points = Array.from({ length: count }, () => ({
+      points = Array.from({ length: count }, (_, i) => ({
         x: Math.random() * width,
         y: Math.random() * height,
         vx: (Math.random() - 0.5) * 0.18,
         vy: (Math.random() - 0.5) * 0.18,
         size: Math.random() * 1.4 + 0.6,
-        alpha: Math.random() * 0.35 + 0.15
+        alpha: Math.random() * 0.35 + 0.15,
+        isMint: i % 4 === 0
       }));
     };
 
@@ -50,7 +51,9 @@ export default function ParticleCanvas() {
 
         ctx.beginPath();
         ctx.arc(point.x, point.y, point.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255, 45, 45, ${point.alpha})`;
+        ctx.fillStyle = point.isMint
+          ? `rgba(126, 175, 162, ${point.alpha})`
+          : `rgba(229, 35, 42, ${point.alpha})`;
         ctx.fill();
       });
 
@@ -68,7 +71,7 @@ export default function ParticleCanvas() {
             ctx.beginPath();
             ctx.moveTo(points[i].x, points[i].y);
             ctx.lineTo(points[j].x, points[j].y);
-            ctx.strokeStyle = `rgba(255, 45, 45, ${0.08 * (1 - distance / maxDistance)})`;
+            ctx.strokeStyle = `rgba(229, 35, 42, ${0.07 * (1 - distance / maxDistance)})`;
             ctx.stroke();
           }
         }
