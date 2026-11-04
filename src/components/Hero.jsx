@@ -1,14 +1,14 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import ProfileCard from './ProfileCard';
 import WarpText from './WarpText';
-import AeroShards from './AeroShards';
+import GhostFibers from './GhostFibers';
 import './Hero.css';
 
 const floatingBadges = [
-  { id: 'aws', label: 'AWS Certified', dotColor: '#e5232a', glowColor: 'rgba(229, 35, 42, 0.55)', positionClass: 'badge-top-left', delay: 0 },
-  { id: 'work', label: 'Open to Work', dotColor: '#7ab8a9', glowColor: 'rgba(122, 184, 169, 0.65)', positionClass: 'badge-top-right', delay: 1.2 },
-  { id: 'spring', label: 'Spring Boot', dotColor: '#7ab8a9', glowColor: 'rgba(122, 184, 169, 0.65)', positionClass: 'badge-bottom-left', delay: 0.6 },
-  { id: 'react', label: 'React.js', dotColor: '#e5232a', glowColor: 'rgba(229, 35, 42, 0.55)', positionClass: 'badge-bottom-right', delay: 1.8 }
+  { id: 'aws', label: 'AWS Certified', dotColor: '#e5232a', glowColor: 'rgba(229, 35, 42, 0.35)', positionClass: 'badge-top-left', delay: 0 },
+  { id: 'work', label: 'Open to Work', dotColor: '#52b8a3', glowColor: 'rgba(82, 184, 163, 0.4)', positionClass: 'badge-top-right', delay: 1.2 },
+  { id: 'spring', label: 'Spring Boot', dotColor: '#52b8a3', glowColor: 'rgba(82, 184, 163, 0.4)', positionClass: 'badge-bottom-left', delay: 0.6 },
+  { id: 'react', label: 'React.js', dotColor: '#e5232a', glowColor: 'rgba(229, 35, 42, 0.35)', positionClass: 'badge-bottom-right', delay: 1.8 }
 ];
 
 export default function Hero() {
@@ -34,19 +34,38 @@ export default function Hero() {
   return (
     <section id="home" className="hero-section home-section">
       <span id="hero" style={{ position: 'absolute', top: 0, pointerEvents: 'none' }} aria-hidden="true" />
-      <div className="hero-aero-shards-wrapper" aria-hidden="true">
-        <AeroShards
-          shardColor="#7ab8a9"
-          accentColor="#e5232a"
-          placement="full"
-          material="glass"
-          markers="plus"
-          count={1300}
-          depthOfField={0.75}
-          vignette={0.3}
-          mouseInteraction
-          pulseOnClick
-          holdToGather
+      <div className="hero-ghost-fibers-wrapper" aria-hidden="true">
+        <GhostFibers
+          glowColor="#dc2626"
+          secondaryColor="#38b29c"
+          lineColor="#f38ba8"
+          gradient="along"
+          layers={3}
+          twist={1.2}
+          threads={72}
+          waves={1}
+          volume={0.7}
+          spread={1}
+          scale={1}
+          rotation={18}
+          perspective={0.65}
+          density={0.95}
+          thickness={0.95}
+          fiberStyle="dots"
+          speed={0.18}
+          flow={0.14}
+          rollSpeed={0.05}
+          foldGlow={0.9}
+          depthOfField={0.8}
+          hoverEffect="focus"
+          mouseInteraction={true}
+          pulseOnClick={true}
+          intro={true}
+          glow={0.65}
+          sparkle={0.25}
+          particles={0.12}
+          brightness={0.72}
+          vignette={0.42}
         />
       </div>
       <div className="hero-container">
@@ -152,10 +171,10 @@ export default function Hero() {
               name=""
               title=""
               showUserInfo={false}
-              holo={0.8}
-              glare={0.55}
-              tiltStrength={12}
-              parallax={8}
+              holo={0.4}
+              glare={0.3}
+              tiltStrength={10}
+              parallax={6}
               radius={20}
               enableTilt={true}
               intro={true}
@@ -167,9 +186,9 @@ export default function Hero() {
               <motion.div
                 key={b.id}
                 className={`floating-tech-badge ${b.positionClass}`}
-                animate={reduceMotion ? {} : { y: [0, -7, 0] }}
+                animate={reduceMotion ? {} : { y: [0, -5, 0] }}
                 transition={{
-                  duration: 3.5,
+                  duration: 3.8,
                   repeat: Infinity,
                   ease: 'easeInOut',
                   delay: b.delay
@@ -179,7 +198,7 @@ export default function Hero() {
                   className="badge-dot"
                   style={{
                     backgroundColor: b.dotColor,
-                    boxShadow: `0 0 10px ${b.dotColor}`
+                    boxShadow: `0 0 6px ${b.dotColor}`
                   }}
                 />
                 <span className="badge-text">{b.label}</span>

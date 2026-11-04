@@ -5,11 +5,11 @@ import './PillNav.css';
 
 const THEMES = {
   dark: {
-    '--pn-surface': 'rgba(10, 13, 15, 0.82)',
+    '--pn-surface': 'rgba(12, 16, 18, 0.78)',
     '--pn-solid': '#0c1012',
-    '--pn-edge': 'rgba(255, 255, 255, 0.08)',
+    '--pn-edge': 'rgba(255, 255, 255, 0.06)',
     '--pn-rim': 'rgba(255, 255, 255, 0.07)',
-    '--pn-shadow': '0 22px 44px -20px rgba(0, 0, 0, 0.8), 0 6px 16px -8px rgba(0, 0, 0, 0.5)',
+    '--pn-shadow': '0 16px 36px -12px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.05)',
     '--pn-text': 'rgba(245, 247, 246, 0.72)',
     '--pn-strong': '#ffffff',
     '--pn-pill': 'linear-gradient(135deg, #e5232a 0%, #b8161c 100%)',
@@ -182,7 +182,9 @@ const PillNav = ({
   const slideRef = useRef(false);
   const pendingRef = useRef(null);
   const [selected, setSelected] = useState(defaultActiveIndex);
-  const [collapsed, setCollapsed] = useState(collapse === 'always');
+  const [collapsed, setCollapsed] = useState(
+    collapse === 'always' || (typeof window !== 'undefined' && window.innerWidth <= 960)
+  );
   const [open, setOpen] = useState(false);
   const [panelShown, setPanelShown] = useState(false);
 
@@ -546,7 +548,7 @@ const PillNav = ({
       const need = joined
         ? pad * 2 + (hasLogo ? inner + 2 : 0) + listWidth
         : (hasLogo ? height + gap : 0) + listWidth + pad * 2;
-      const next = need > available + 0.5;
+      const next = (typeof window !== 'undefined' && window.innerWidth <= 960) || need > available + 0.5;
       if (introRef.current && next !== collapsed) pendingRef.current = next;
       setCollapsed(next);
     };

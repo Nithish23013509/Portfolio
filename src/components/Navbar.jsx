@@ -161,6 +161,7 @@ export default function Navbar() {
           bounce={0.3}
           stretch={0.4}
           collapse="auto"
+          intro={false}
           ariaLabel="Main Portfolio Navigation"
         />
 

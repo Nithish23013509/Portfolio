@@ -11,6 +11,11 @@ export default function Loader({ onComplete }) {
   }, [onComplete]);
 
   useEffect(() => {
+    if (typeof window !== 'undefined' && new URLSearchParams(window.location.search).has('skipLoader')) {
+      setVisible(false);
+      onCompleteRef.current?.();
+      return;
+    }
     const timer = setTimeout(() => {
       setVisible(false);
       onCompleteRef.current?.();
